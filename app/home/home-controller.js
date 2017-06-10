@@ -2,10 +2,15 @@ angular.module('myApp').controller('HomeController', function($scope) {
     $scope.models = {
         selected: null,
         templates: [
-            { type: "procedimento", title: "Procedimento", content: "Ação", id: 2 },
-            { type: "pergunta", title: "Pergunta", content: "Resposta", id: 2 },
+            { type: "procedimento", title: "Procedimento", content: "Descrição", id: 1 },
+            { type: "pergunta", title: "Pergunta", content: "Descrição", id: 1 },
+            { type: "exame", title: "Exame Físico", content: "Descrição", id: 1 },
+            { type: "prescricao", title: "Prescrição de medicamentos", content: "Desrição", id: 1 },
             {
-                type: "container",
+                type: "perguntaCondicional",
+                title: "Pergunta Condicional",
+                content: "Pergunta",
+                options: ["opção 1", "opção 2"],
                 id: 1,
                 columns: [
                     [],
@@ -33,7 +38,9 @@ angular.module('myApp').controller('HomeController', function($scope) {
         }
     };
 
-    $scope.$watch('models.dropzones', function(model) {
+    $scope.model = []
+
+    $scope.$watch('model', function(model) {
         $scope.modelAsJson = angular.toJson(model, true);
     }, true);
 });

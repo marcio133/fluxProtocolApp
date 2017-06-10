@@ -1,5 +1,7 @@
 /* app css stylesheet */
 
+* {}
+
 .menu {
     list-style: none;
     border-bottom: 0.1em solid black;
@@ -33,6 +35,11 @@
  * otherwise you can't drop to it once it's empty
  */
 
+.nestedDemo {
+    align-items: center;
+    text-align: center;
+}
+
 .nestedDemo .dropzone ul[dnd-list] {
     margin: 0px;
     min-height: 42px;
@@ -40,8 +47,9 @@
 }
 
 .nestedDemo .dropzone li {
+    margin-bottom: 15px;
     background-color: #fff;
-    border: 1px solid #ddd;
+    /*border: 1px solid #ddd;*/
     display: block;
     padding: 0px;
 }
@@ -83,12 +91,14 @@
 
 /***************************** Element Selection *****************************/
 
-.nestedDemo .dropzone .selected .item {
+
+/*.nestedDemo .dropzone .selected .item {
     color: #3c763d;
     background-color: #dff0d8;
-}
+}*/
 
-.nestedDemo .dropzone .selected .box {
+
+/*.nestedDemo .dropzone .selected .box {
     border-color: #d6e9c6;
 }
 
@@ -97,7 +107,7 @@
     background-image: linear-gradient(to bottom, #dff0d8 0, #d0e9c6 100%);
     border-color: #d6e9c6;
     color: #3c763d;
-}
+}*/
 
 
 /***************************** Element type specific styles *****************************/
@@ -162,4 +172,42 @@
 
 .nestedDemo .trashcan .dndPlaceholder {
     display: none;
+}
+
+.start {
+    border-radius: 50%;
+    background-color: #EF476F;
+    color: #fff;
+    padding-top: 50px;
+    height: 140px;
+    width: 140px;
+    margin: 0 auto;
+}
+
+.procedure {
+    background-color: #1B9AAA;
+    color: #fff;
+}
+
+.question {
+    width: 50%;
+    margin-left: 25%;
+    background-color: #06D6A0;
+    color: #fff;
+    border-radius: 15px;
+}
+
+.condition {
+    border: 5px solid #FFC43D;
+    border-radius: 10px;
+    /* Rotate */
+}
+
+.condition .question {
+    width: 96%;
+    margin-left: 2%;
+}
+
+.arrow {
+    max-width: 30px;
 }
