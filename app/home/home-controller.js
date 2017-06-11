@@ -70,9 +70,9 @@ angular.module('myApp').controller('HomeController', function($scope) {
         }
     }
 
-    $scope.focus = function(id) {
-        console.log(id);
-        $('#' + id).focus();
+    $scope.focus = function(item) {
+        var id = '#' + item.id + item.type;
+        $(id).focus();
     }
 
 

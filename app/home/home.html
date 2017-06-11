@@ -46,9 +46,8 @@
     <div class="item procedure">
         <div class="form-group">
             <label>{{item.title}}</label>
-            <div class="align-right edit-icon" ng-click="focus(item.id)"><i class="fa fa-pencil-square-o"></i></div>
-            <textarea style="overflow: visible; z-index:1;" id="{{item.id}}" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content"></textarea>
-
+            <div class="align-right edit-icon" ng-click="focus(item)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
+            <textarea style="overflow: visible;" id="{{item.id}}{{item.type}}" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content"></textarea>
         </div>
     </div>
     <img class="arrow" src="img/arrow.png" alt="">
@@ -58,7 +57,8 @@
     <div class="item question">
         <div class="form-group">
             <label>{{item.title}}</label>
-            <textarea style="overflow: visible" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content"></textarea>
+            <div class="align-right edit-icon" ng-click="focus(item)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
+            <textarea style="overflow: visible;" id="{{item.id}}{{item.type}}" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content"></textarea>
         </div>
     </div>
     <img class="arrow" src="img/arrow.png" alt="">
@@ -68,7 +68,8 @@
     <div class="item exam">
         <div class="form-group">
             <label>{{item.title}}</label>
-            <textarea style="overflow: visible" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content"></textarea>
+            <div class="align-right edit-icon" ng-click="focus(item)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
+            <textarea style="overflow: visible;" id="{{item.id}}{{item.type}}" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content"></textarea>
         </div>
     </div>
     <img class="arrow" src="img/arrow.png" alt="">
@@ -78,7 +79,9 @@
     <div class="item prescription">
         <div class="form-group">
             <label>{{item.title}}</label>
-            <textarea style="overflow: visible" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content"></textarea> </div>
+            <div class="align-right edit-icon" ng-click="focus(item)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
+            <textarea style="overflow: visible;" id="{{item.id}}{{item.type}}" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content"></textarea>
+        </div>
     </div>
     <img class="arrow" src="img/arrow.png" alt="">
 </script>
