@@ -62,6 +62,32 @@
     <img class="arrow" src="img/arrow.png" alt="">
 </script>
 
+<script type="text/ng-template" id="exame.html">
+    <div class="item exam">
+        <div class="form-group">
+            <label>{{item.title}}</label>
+            <input type="text" class="form-control" placeholder="" ng-model="item.content">
+        </div>
+    </div>
+    <img class="arrow" src="img/arrow.png" alt="">
+</script>
+
+<script type="text/ng-template" id="prescricao.html">
+    <div class="item prescription">
+        <div class="form-group">
+            <label>{{item.title}}</label>
+            <input type="text" class="form-control" placeholder="" ng-model="item.content">
+        </div>
+    </div>
+    <img class="arrow" src="img/arrow.png" alt="">
+</script>
+
+<script type="text/ng-template" id="encerra.html">
+    <div class="item">
+        <img class="close-img" src="img/close-icon.png" alt="">
+    </div>
+</script>
+
 <!-- Main area with dropzones and source code -->
 <div class="col-md-10">
     <div class="nestedDemo">

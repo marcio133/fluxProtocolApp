@@ -6,6 +6,7 @@ angular.module('myApp').controller('HomeController', function($scope) {
             { type: "pergunta", title: "Pergunta", content: "Descrição", id: 1 },
             { type: "exame", title: "Exame Físico", content: "Descrição", id: 1 },
             { type: "prescricao", title: "Prescrição de medicamentos", content: "Desrição", id: 1 },
+            { type: "encerra", title: "Encerrar Atendimento", content: "", id: 1 },
             {
                 type: "perguntaCondicional",
                 title: "Pergunta Condicional",
@@ -17,25 +18,7 @@ angular.module('myApp').controller('HomeController', function($scope) {
                     []
                 ]
             }
-        ],
-        dropzones: {
-            "A": [{
-                    "type": "procedimento",
-                    "title": "Procedimento",
-                    "id": "4"
-                },
-                {
-                    "type": "procedimento",
-                    "title": "Procedimento",
-                    "id": "5"
-                },
-                {
-                    "type": "procedimento",
-                    "title": "Procedimento",
-                    "id": "6"
-                }
-            ]
-        }
+        ]
     };
 
     $scope.model = []

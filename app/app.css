@@ -113,7 +113,7 @@
 /***************************** Element type specific styles *****************************/
 
 .nestedDemo .dropzone .item {
-    padding: 10px 15px;
+    padding: 15px 15px;
 }
 
 .nestedDemo .dropzone .container-element {
@@ -185,8 +185,24 @@
 }
 
 .procedure {
+    width: 50%;
+    margin-left: 25%;
     background-color: #1B9AAA;
     color: #fff;
+}
+
+.procedure input {
+    text-align: center;
+    color: #fff;
+    background-color: #1B9AAA;
+    border: none;
+    box-shadow: none !important;
+}
+
+.procedure input:focus {
+    border: 1px solid #ccc;
+    color: #555;
+    background-color: #fff;
 }
 
 .question {
@@ -197,17 +213,41 @@
     border-radius: 15px;
 }
 
+.exam {
+    width: 50%;
+    margin-left: 25%;
+    background-color: #F08700;
+    color: #fff;
+    border-radius: 15px;
+}
+
+.prescription {
+    width: 50%;
+    margin-left: 25%;
+    background-color: #006BA6;
+    color: #fff;
+    border-radius: 15px;
+}
+
 .condition {
     border: 5px solid #FFC43D;
     border-radius: 10px;
     /* Rotate */
 }
 
-.condition .question {
+.condition .question,
+.condition .procedure,
+.condition .exam,
+.condition .prescription {
     width: 96%;
     margin-left: 2%;
 }
 
 .arrow {
     max-width: 30px;
+}
+
+.close-img {
+    width: 140px;
+    height: 140px;
 }
