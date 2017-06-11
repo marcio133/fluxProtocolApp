@@ -3,7 +3,7 @@ angular.module('myApp').controller('HomeController', function($scope) {
         selected: null,
         templates: [
             { type: "procedimento", title: "Procedimento", content: "Descrição", id: 1 },
-            { type: "pergunta", title: "Pergunta", content: "Descrição", id: 1 },
+            { type: "pergunta", title: "Pergunta", content: "", id: 1 },
             { type: "exame", title: "Exame Físico", content: "Descrição", id: 1 },
             { type: "prescricao", title: "Prescrição de medicamentos", content: "Desrição", id: 1 },
             { type: "encerra", title: "Encerrar Atendimento", content: "", id: 1 },
@@ -24,11 +24,8 @@ angular.module('myApp').controller('HomeController', function($scope) {
     $scope.model = [];
 
     $scope.dragoverCallback = function(index, type) {
-        console.log(index, type);
         if ($scope.model.length > 0) {
             if (index == 0) {
-                console.log($scope.model);
-                console.log("arrombado");
                 if ($scope.model[index].type != "encerra" && type == "encerra") {
                     return false;
                 } else {
@@ -64,6 +61,19 @@ angular.module('myApp').controller('HomeController', function($scope) {
         }
 
     };
+
+    $scope.dragOverConditionalCallback = function(index, type) {
+        if (type == "encerra") {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    $scope.focus = function(id) {
+        console.log(id);
+        $('#' + id).focus();
+    }
 
 
     $scope.$watch('model', function(model) {

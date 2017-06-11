@@ -174,10 +174,19 @@
     display: none;
 }
 
-input:focus {
+.align-right {
+    text-align: right;
+}
+
+.edit-icon {
+    margin-top: -5px;
+}
+
+textarea:focus {
     border: 1px solid #ccc;
     color: #555;
     background-color: #fff !important;
+    text-align: left;
 }
 
 .fluxx-input {
@@ -202,6 +211,7 @@ input:focus {
     margin-left: 25%;
     background-color: #1B9AAA;
     color: #fff;
+    border-radius: 5px;
 }
 
 .procedure .fluxx-input {

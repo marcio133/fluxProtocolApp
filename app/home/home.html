@@ -5,7 +5,7 @@
      assigned to it. If an element was dragged away, you have to remove
      it from the original list yourself using the dnd-moved attribute -->
 <script type="text/ng-template" id="list.html">
-    <ul dnd-list="list">
+    <ul dnd-list="list" dnd-dragover="dragOverConditionalCallback(index, type)">
         <li ng-repeat="item in list" dnd-draggable="item" dnd-effect-allowed="move" dnd-moved="list.splice($index, 1)" dnd-selected="models.selected = item" ng-class="{selected: models.selected === item}" ng-include="item.type + '.html'">
         </li>
     </ul>
@@ -46,7 +46,9 @@
     <div class="item procedure">
         <div class="form-group">
             <label>{{item.title}}</label>
-            <input type="text" class="form-control fluxx-input" placeholder="" ng-model="item.content">
+            <div class="align-right edit-icon" ng-click="focus(item.id)"><i class="fa fa-pencil-square-o"></i></div>
+            <textarea style="overflow: visible; z-index:1;" id="{{item.id}}" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content"></textarea>
+
         </div>
     </div>
     <img class="arrow" src="img/arrow.png" alt="">
@@ -56,7 +58,7 @@
     <div class="item question">
         <div class="form-group">
             <label>{{item.title}}</label>
-            <input type="text" class="form-control fluxx-input" placeholder="" ng-model="item.content">
+            <textarea style="overflow: visible" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content"></textarea>
         </div>
     </div>
     <img class="arrow" src="img/arrow.png" alt="">
@@ -66,7 +68,7 @@
     <div class="item exam">
         <div class="form-group">
             <label>{{item.title}}</label>
-            <input type="text" class="form-control fluxx-input" placeholder="" ng-model="item.content">
+            <textarea style="overflow: visible" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content"></textarea>
         </div>
     </div>
     <img class="arrow" src="img/arrow.png" alt="">
@@ -76,8 +78,7 @@
     <div class="item prescription">
         <div class="form-group">
             <label>{{item.title}}</label>
-            <input type="text" class="form-control fluxx-input" placeholder="" ng-model="item.content">
-        </div>
+            <textarea style="overflow: visible" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content"></textarea> </div>
     </div>
     <img class="arrow" src="img/arrow.png" alt="">
 </script>
