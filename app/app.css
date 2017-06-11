@@ -180,6 +180,7 @@
 
 .edit-icon {
     margin-top: -5px;
+    cursor: pointer;
 }
 
 textarea:focus {
@@ -255,9 +256,23 @@ textarea:focus {
 }
 
 .condition {
-    border: 5px solid #FFC43D;
+    border: 3px solid #FFC43D;
     border-radius: 10px;
     /* Rotate */
+}
+
+.condition-question {
+    padding: 20px;
+    background-color: #FFC43D;
+    color: #fff;
+}
+
+.condition-question .fluxx-input {
+    background-color: #FFC43D;
+}
+
+.condition-question h3 {
+    margin-top: 0px !important;
 }
 
 .condition .question,
@@ -268,6 +283,19 @@ textarea:focus {
     margin-left: 2%;
 }
 
+.conditional-input {
+    text-align: center;
+    border: none;
+    box-shadow: none !important;
+}
+
+.conditional-input:focus {
+    border: 1px solid #ccc;
+    color: #555;
+    background-color: #fff !important;
+    text-align: left;
+}
+
 .arrow {
     max-width: 30px;
 }
@@ -275,4 +303,62 @@ textarea:focus {
 .close-img {
     width: 140px;
     height: 140px;
+}
+
+.padding {
+    padding: 15px;
+    padding-bottom: 0px;
+}
+
+.divisor,
+.column {
+    border-right: 1px solid #FFC43D;
+}
+
+.side-options {
+    position: fixed;
+}
+
+.options {
+    list-style-type: none;
+}
+
+.option {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 80%;
+    margin-left: 10%;
+    height: 80px;
+    /*//padding-top: 30px;*/
+    font-size: 20px;
+    text-align: center;
+    color: #fff;
+    border-radius: 15px;
+    display: table;
+}
+
+.procedimento {
+    background-color: #006BA6;
+}
+
+.pergunta {
+    background-color: #06D6A0;
+}
+
+.exame {
+    background-color: #F08700;
+}
+
+.prescricao {
+    padding-top: 10px;
+    background-color: #006BA6;
+}
+
+.perguntaCondicional {
+    padding-top: 10px;
+    background-color: #FFC43D;
+}
+
+.encerra {
+    background-color: #ff3838;
 }

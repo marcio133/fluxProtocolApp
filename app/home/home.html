@@ -15,23 +15,26 @@
      the above list template to render each container column -->
 <script type="text/ng-template" id="perguntaCondicional.html">
     <div class="container-element box condition">
-        <div class="">
+        <div class="condition-question">
             <h3>Pergunta Condicional</h3>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="" ng-model="item.content">
+                        <div class="align-right edit-icon" ng-click="focus(item)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
+                        <textarea style="overflow: visible;" id="{{item.id}}{{item.type}}" class="form-control fluxx-input" placeholder="Pergunta" ng-model="item.content"></textarea>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-6 col-md-6">
-                <input type="text" class="form-control" placeholder="" ng-model="item.options[0]">
+        <div class="row padding">
+            <div class="col-xs-6 col-md-6 divisor">
+                <div class="align-right edit-icon" ng-click="focusINput(item, 0)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
+                <input type="text" class="form-control conditional-input" id="{{item.id}}{{item.type}}-0" placeholder="Opção 2" ng-model="item.options[0]">
                 <img class="arrow" src="img/arrow.png" alt="">
             </div>
             <div class="col-xs-6 col-md-6">
-                <input type="text" class="form-control" placeholder="" ng-model="item.options[1]">
+                <div class="align-right edit-icon" ng-click="focusINput(item, 1)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
+                <input type="text" class="form-control conditional-input" id="{{item.id}}{{item.type}}-1" placeholder="Opção 1" ng-model="item.options[1]">
                 <img class="arrow" src="img/arrow.png" alt="">
             </div>
         </div>
@@ -93,7 +96,7 @@
 </script>
 
 <!-- Main area with dropzones and source code -->
-<div class="col-md-10">
+<div class="col-md-9">
     <div class="nestedDemo">
         <div class="row">
             <div class="col-md-12">
@@ -120,15 +123,18 @@
 </div>
 
 <!-- Sidebar -->
-<div class="col-md-2">
+<div class="col-md-3 col-sm-3">
 
-    <div class="toolbox box box-grey box-padding">
-        <h3>New Elements</h3>
-        <ul>
+    <div class="toolbox box box-grey box-padding side-options">
+        <h3 class="text-center">Componentes</h3>
+        <ul class="options">
             <!-- The toolbox only allows to copy objects, not move it. After a new
                  element was created, dnd-copied is invoked and we generate the next id -->
             <li ng-repeat="item in models.templates" dnd-draggable="item" dnd-type="item.type" dnd-effect-allowed="copy" dnd-copied="item.id = item.id + 1">
-                <button type="button" class="btn btn-default btn-lg">{{item.type}}</button>
+                <div class="option {{item.type}}">
+                    <p style="display: table-cell;vertical-align: middle;">{{item.title}}</p>
+                </div>
+                <!--<button type="button" class="btn btn-default btn-lg">{{item.type}}</button>-->
             </li>
         </ul>
     </div>
