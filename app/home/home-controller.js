@@ -21,7 +21,50 @@ angular.module('myApp').controller('HomeController', function($scope) {
         ]
     };
 
-    $scope.model = []
+    $scope.model = [];
+
+    $scope.dragoverCallback = function(index, type) {
+        console.log(index, type);
+        if ($scope.model.length > 0) {
+            if (index == 0) {
+                console.log($scope.model);
+                console.log("arrombado");
+                if ($scope.model[index].type != "encerra" && type == "encerra") {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                if (type == "encerra") {
+                    if ($scope.model[index] == undefined && $scope.model[index - 1].type != "encerra") {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else {
+                    if (index != 0) {
+                        if ($scope.model[index - 1].type == "encerra") {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    } else {
+                        if (type != "encerra") {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    }
+
+                }
+            }
+
+        } else {
+            return true;
+        }
+
+    };
+
 
     $scope.$watch('model', function(model) {
         $scope.modelAsJson = angular.toJson(model, true);
