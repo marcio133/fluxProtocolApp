@@ -81,6 +81,10 @@ angular.module('myApp').controller('HomeController', function($scope) {
         $(id).focus();
     }
 
+    $scope.showModel = function() {
+        $scope.showM = !$scope.showM;
+    }
+
     $scope.$watch('model', function(model) {
         $scope.modelAsJson = angular.toJson(model, true);
     }, true);
