@@ -85,6 +85,24 @@ angular.module('myApp').controller('HomeController', function($scope) {
         $scope.showM = !$scope.showM;
     }
 
+    $scope.saveForm = function() {
+        var count = 0;
+        angular.forEach($scope.model, function(item, index) {
+            if (item.type == "encerra") {
+                count++;
+            }
+        });
+        if (count == 0 || $scope.model.length < 2) {
+            $scope.errorMessage = "Opa! Parece que você ainda não encerrou o protocolo."
+        } else {
+
+        }
+    }
+
+    $scope.closeError = function() {
+        $scope.errorMessage = null;
+    }
+
     $scope.$watch('model', function(model) {
         $scope.modelAsJson = angular.toJson(model, true);
     }, true);
