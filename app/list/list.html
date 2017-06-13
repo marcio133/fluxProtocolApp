@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="page-header">
+        <h1>Fluxos salvos</h1>
+    </div>
+</div>
+<div class="container">
+    <table class="table table-striped">
+        <tr>
+            <th>Protocolo</th>
+            <th class="td-small"></th>
+            <th class="td-small"></th>
+        </tr>
+        <tr ng-repeat="protocol in protocols track by $index">
+            <td>{{protocol.title}}</td>
+            <td><a class="btn btn-warning btn-sm" ng-click="edit($index)"><i class="fa fa-pencil-square-o fa-2x"></i></a></td>
+            <td><a title="Remover" data-toggle="modal" ng-click="remove($index)" data-target="#modalDeletarCidade" class="btn btn-danger btn-sm"><i class="fa fa-trash fa-2x"></i></a></td>
+        </tr>
+    </table>
+</div>

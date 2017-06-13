@@ -1,4 +1,4 @@
-angular.module('myApp').controller('HomeController', function($scope) {
+angular.module('myApp').controller('HomeController', function($scope, $state, $stateParams, HomeService) {
     $scope.models = {
         selected: null,
         templates: [
@@ -28,10 +28,6 @@ angular.module('myApp').controller('HomeController', function($scope) {
     }
 
     $scope.dragoverCallback = function(index, type) {
-        console.log("aqui");
-        console.log(type);
-        console.log(index);
-        console.log(type == "encerra" && $scope.protocol.model[index + 1] != undefined);
         if ($scope.protocol.model.length > 0) {
             if (index == 0) {
                 if ($scope.protocol.model[index].type != "encerra" && type == "encerra") {
@@ -39,7 +35,6 @@ angular.module('myApp').controller('HomeController', function($scope) {
                 } else if (type == "encerra" && $scope.protocol.model[index] != undefined) {
                     return false;
                 } else {
-                    console.log("aqui");
                     return true;
                 }
             } else {
@@ -92,7 +87,6 @@ angular.module('myApp').controller('HomeController', function($scope) {
     }
 
     $scope.focusTitle = function() {
-        console.log("entrou");
         $('#input-title').focus();
     }
 
@@ -110,12 +104,23 @@ angular.module('myApp').controller('HomeController', function($scope) {
         if (count == 0 || $scope.protocol.model.length < 2) {
             $scope.errorMessage = "Opa! Parece que você ainda não encerrou o protocolo."
         } else {
-
+            if ($stateParams.edit != null) {
+                HomeService.removeProtocol($stateParams.edit);
+            }
+            HomeService.addProtocol($scope.protocol);
+            $state.go('list');
         }
     }
 
     $scope.closeError = function() {
         $scope.errorMessage = null;
+    }
+
+
+    if ($stateParams.edit != null) {
+        console.log("entrou");
+        $scope.protocol = HomeService.getProtocol($stateParams.edit);
+        console.log($scope);
     }
 
     $scope.$watch('protocol', function(protocol) {

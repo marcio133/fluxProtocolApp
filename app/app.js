@@ -13,8 +13,16 @@ angular.module('myApp', [
     //INDEX
         .state('home', {
         url: '/home',
+        params: { 'edit': null },
         templateUrl: '/home/home.html',
-        controller: 'HomeController'
+        controller: 'HomeController as hc'
+    })
+
+    .state('list', {
+        cache: false,
+        url: '/list',
+        templateUrl: 'list/list.html',
+        controller: "ListController as lc"
     })
 
     $urlRouterProvider.otherwise('/home');

@@ -380,6 +380,10 @@ textarea:focus {
     display: inline !important;
 }
 
+.td-small {
+    width: 1%;
+}
+
 @media(max-height: 662px) {
     .side-menu {
         right: 0px;
