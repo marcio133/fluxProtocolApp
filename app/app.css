@@ -87,7 +87,7 @@
 /***************************** Element type specific styles *****************************/
 
 .nestedDemo .dropzone .item {
-    padding: 15px 15px;
+    padding: 5px 15px;
 }
 
 .nestedDemo .dropzone .container-element {
@@ -220,7 +220,7 @@ textarea:focus {
     margin-left: 25%;
     background-color: #F08700;
     color: #fff;
-    border-radius: 50px;
+    border-radius: 40px;
 }
 
 .exam .fluxx-input {
@@ -294,9 +294,13 @@ textarea:focus {
     padding-bottom: 0px;
 }
 
-.divisor,
+.divisor-right,
 .column {
     border-right: 1px solid #FFC43D;
+}
+
+.divisor-left {
+    border-left: 1px solid #FFC43D;
 }
 
 .options {
