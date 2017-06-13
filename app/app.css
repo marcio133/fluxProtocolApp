@@ -348,8 +348,9 @@ textarea:focus {
 }
 
 .side-menu {
+    top: 60px;
     height: 100%;
-    background-color: #786F52 !important;
+    background-color: #2D4739 !important;
     color: #fff;
     right: 0px;
     position: fixed;
@@ -382,6 +383,19 @@ textarea:focus {
 
 .td-small {
     width: 1%;
+}
+
+.navbar-main {
+    height: 60px;
+    background-color: #2D4739 !important;
+    /*border: none;*/
+    border-radius: 0px;
+}
+
+.navbar-nav>li>a {
+    font-size: 17px;
+    line-height: 30px;
+    color: #fff !important;
 }
 
 @media(max-height: 662px) {
