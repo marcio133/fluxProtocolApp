@@ -399,6 +399,9 @@ textarea:focus {
     /* Standard syntax */
     /*background-color: #2D4739 !important;*/
     /*border: none;*/
+    border-top: none;
+    border-left: none;
+    border-right: none;
     border-radius: 0px;
 }
 
