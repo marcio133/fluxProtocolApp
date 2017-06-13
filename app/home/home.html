@@ -20,7 +20,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
-                        <div class="align-right edit-icon" ng-click="focus(item)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
+                        <div class="align-right icon-helper" ng-click="focus(item)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
                         <textarea style="overflow: visible;" id="{{item.id}}{{item.type}}" class="form-control fluxx-input" placeholder="Pergunta" ng-model="item.content" required></textarea>
                     </div>
                 </div>
@@ -28,12 +28,12 @@
         </div>
         <div class="row padding">
             <div class="col-xs-6 col-md-6 divisor">
-                <div class="align-right edit-icon" ng-click="focusINput(item, 0)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
+                <div class="align-right icon-helper" ng-click="focusINput(item, 0)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
                 <input type="text" class="form-control conditional-input" id="{{item.id}}{{item.type}}-0" placeholder="Opção 2" ng-model="item.options[0]" required>
                 <img class="arrow" src="img/arrow.png" alt="">
             </div>
             <div class="col-xs-6 col-md-6">
-                <div class="align-right edit-icon" ng-click="focusINput(item, 1)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
+                <div class="align-right icon-helper" ng-click="focusINput(item, 1)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
                 <input type="text" class="form-control conditional-input" id="{{item.id}}{{item.type}}-1" placeholder="Opção 1" ng-model="item.options[1]" required>
                 <img class="arrow" src="img/arrow.png" alt="">
             </div>
@@ -48,8 +48,16 @@
 <script type="text/ng-template" id="procedimento.html">
     <div class="item procedure">
         <div class="form-group">
-            <label>{{item.title}}</label>
-            <div class="align-right edit-icon" ng-click="focus(item)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
+            <div class="row margin-bottom-15">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <label>{{item.title}}</label>
+                </div>
+                <div class="col-sm-3">
+                    <div class="align-right icon-helper" ng-click="protocol.model.splice($index, 1)"><i class="fa fa-times fa-2x"></i></div>
+
+                </div>
+            </div>
+            <div class="align-right icon-helper" ng-click="focus(item)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
             <textarea style="overflow: visible;" id="{{item.id}}{{item.type}}" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content" required></textarea>
         </div>
     </div>
@@ -60,7 +68,10 @@
     <div class="item question">
         <div class="form-group">
             <label>{{item.title}}</label>
-            <div class="align-right edit-icon" ng-click="focus(item)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
+            <div class="align-right icon-helper">
+                <button class="icon-button" type="button" ng-click="protocol.model.splice($index, 1)"><i class="fa fa-times fa-2x"></i></button>
+                <button class="icon-button" type="button" ng-click="focus(item)"><i class="fa fa-pencil-square-o fa-2x"></i></button>
+            </div>
             <textarea style="overflow: visible;" id="{{item.id}}{{item.type}}" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content" required></textarea>
         </div>
     </div>
@@ -71,7 +82,8 @@
     <div class="item exam">
         <div class="form-group">
             <label>{{item.title}}</label>
-            <div class="align-right edit-icon" ng-click="focus(item)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
+            <div class="align-right icon-helper" ng-click="protocol.model.splice($index, 1)"><i class="fa fa-times fa-2x"></i></div>
+            <div class="align-right icon-helper" ng-click="focus(item)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
             <textarea style="overflow: visible;" id="{{item.id}}{{item.type}}" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content" required></textarea>
         </div>
     </div>
@@ -82,7 +94,8 @@
     <div class="item prescription">
         <div class="form-group">
             <label>{{item.title}}</label>
-            <div class="align-right edit-icon" ng-click="focus(item)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
+            <div class="align-right icon-helper" ng-click="protocol.model.splice($index, 1)"><i class="fa fa-times fa-2x"></i></div>
+            <div class="align-right icon-helper" ng-click="focus(item)"><i class="fa fa-pencil-square-o fa-2x"></i></div>
             <textarea style="overflow: visible;" id="{{item.id}}{{item.type}}" class="form-control fluxx-input" placeholder="Descrição" ng-model="item.content" required></textarea>
         </div>
     </div>
@@ -106,14 +119,17 @@
                             <div class="dropzone box box-yellow">
                                 <!-- The dropzone also uses the list template -->
                                 <div class="row">
+                                    <h3>Protocolo </h3>
+                                    <input id="input-title" type="text" class="form-control title-input" ng-model="protocol.title" placeholder="Título do Protocolo" required><i ng-click="focusTitle()" class="fa fa-pencil-square-o fa-2x icon-helper-title"></i>
+                                    <div class="start">INICIA ATENDIMENTO</div>
+                                </div>
+                                <div class="row">
                                     <div class="col-sm-2 col-sm-offset-5">
-                                        <h3>Protocolo {{zone}}</h3>
-                                        <div class="start">INICIA ATENDIMENTO</div>
                                         <img class="arrow" src="img/arrow.png" alt="">
                                     </div>
                                 </div>
-                                <ul dnd-list="model" dnd-dragover="dragoverCallback(index, type)">
-                                    <li ng-repeat="item in model" dnd-draggable="item" dnd-effect-allowed="move" dnd-moved="model.splice($index, 1)" dnd-selected="models.selected = item" ng-class="{selected: models.selected === item}" ng-include="item.type + '.html'">
+                                <ul dnd-list="protocol.model" dnd-dragover="dragoverCallback(index, type)">
+                                    <li ng-repeat="item in protocol.model" dnd-draggable="item" dnd-type="item.type" dnd-effect-allowed="move" dnd-moved="protocol.model.splice($index, 1)" dnd-selected="models.selected = item" ng-class="{selected: models.selected === item}" ng-include="item.type + '.html'">
                                     </li>
                                 </ul>
                             </div>
@@ -131,7 +147,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <button class="btn btn-info" ng-click="showModel()">{{showM ? 'Esconder Modelo' : 'Ver modelo gerado' }}</button>
+                        <button type="button" class="btn btn-info" ng-click="showModel()">{{showM ? 'Esconder Modelo' : 'Ver modelo gerado' }}</button>
                         <button type="submit" class="btn btn-success" ng-click="fluxForm.$valid && saveForm()">Finalizar Protocolo</button>
                     </div>
                     <div ng-show="showM">

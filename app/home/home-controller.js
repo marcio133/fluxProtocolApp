@@ -22,26 +22,36 @@ angular.module('myApp').controller('HomeController', function($scope) {
         ]
     };
 
-    $scope.model = [];
+    $scope.protocol = {
+        model: [],
+        title: ""
+    }
 
     $scope.dragoverCallback = function(index, type) {
-        if ($scope.model.length > 0) {
+        console.log("aqui");
+        console.log(type);
+        console.log(index);
+        console.log(type == "encerra" && $scope.protocol.model[index + 1] != undefined);
+        if ($scope.protocol.model.length > 0) {
             if (index == 0) {
-                if ($scope.model[index].type != "encerra" && type == "encerra") {
+                if ($scope.protocol.model[index].type != "encerra" && type == "encerra") {
+                    return false;
+                } else if (type == "encerra" && $scope.protocol.model[index] != undefined) {
                     return false;
                 } else {
+                    console.log("aqui");
                     return true;
                 }
             } else {
                 if (type == "encerra") {
-                    if ($scope.model[index] == undefined && $scope.model[index - 1].type != "encerra") {
+                    if ($scope.protocol.model[index] == undefined && $scope.protocol.model[index - 1].type != "encerra") {
                         return true;
                     } else {
                         return false;
                     }
                 } else {
                     if (index != 0) {
-                        if ($scope.model[index - 1].type == "encerra") {
+                        if ($scope.protocol.model[index - 1].type == "encerra") {
                             return false;
                         } else {
                             return true;
@@ -81,18 +91,23 @@ angular.module('myApp').controller('HomeController', function($scope) {
         $(id).focus();
     }
 
+    $scope.focusTitle = function() {
+        console.log("entrou");
+        $('#input-title').focus();
+    }
+
     $scope.showModel = function() {
         $scope.showM = !$scope.showM;
     }
 
     $scope.saveForm = function() {
         var count = 0;
-        angular.forEach($scope.model, function(item, index) {
+        angular.forEach($scope.protocol.model, function(item, index) {
             if (item.type == "encerra") {
                 count++;
             }
         });
-        if (count == 0 || $scope.model.length < 2) {
+        if (count == 0 || $scope.protocol.model.length < 2) {
             $scope.errorMessage = "Opa! Parece que você ainda não encerrou o protocolo."
         } else {
 
@@ -103,7 +118,7 @@ angular.module('myApp').controller('HomeController', function($scope) {
         $scope.errorMessage = null;
     }
 
-    $scope.$watch('model', function(model) {
-        $scope.modelAsJson = angular.toJson(model, true);
+    $scope.$watch('protocol', function(protocol) {
+        $scope.modelAsJson = angular.toJson(protocol, true);
     }, true);
 });
