@@ -1,4 +1,4 @@
-angular.module('myApp').controller('HomeController', function($scope, $state, $stateParams, HomeService) {
+angular.module('myApp').controller('HomeController', function($scope, $state, $stateParams, $window, HomeService) {
     $scope.models = {
         selected: null,
         templates: [
@@ -122,6 +122,18 @@ angular.module('myApp').controller('HomeController', function($scope, $state, $s
         $scope.protocol = HomeService.getProtocol($stateParams.edit);
         console.log($scope);
     }
+
+    $scope.scrollPos = 0;
+
+    $window.onscroll = function() {
+        $scope.scrollPos = document.body.scrollTop || document.documentElement.scrollTop || 0;
+        $scope.$apply(); //or simply $scope.$digest();
+        console.log($scope.scrollPos);
+        $scope.minusScroll = 60 - $scope.scrollPos;
+        console.log($scope.minusScroll);
+
+
+    };
 
     $scope.$watch('protocol', function(protocol) {
         $scope.modelAsJson = angular.toJson(protocol, true);

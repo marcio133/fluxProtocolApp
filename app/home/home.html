@@ -1,3 +1,11 @@
+<script>
+    $(document).ready(function() {
+        $(window).scroll(function() {
+            console.log('Scrolou');
+        });
+    });
+</script>
+
 <!-- Markup for lists inside the dropzone. It's inside a seperate template
      because it will be used recursively. The dnd-list directive enables
      to drop elements into the referenced array. The dnd-draggable directive
@@ -193,15 +201,17 @@
         <!-- The toolbox only allows to copy objects, not move it. After a new
                  element was created, dnd-copied is invoked and we generate the next id -->
         <div class="col-md-3 col-sm-3 ">
-            <div class="toolbox box box-grey box-padding side-menu">
-                <h3 class="text-center">Componentes</h3>
-                <ul class="options nav nav-pills nav-stacked">
-                    <li ng-repeat="item in models.templates" dnd-draggable="item" dnd-type="item.type" dnd-effect-allowed="copy" dnd-copied="item.id = item.id + 1">
-                        <div class="option {{item.type}}">
-                            <p style="display: table-cell;vertical-align: middle;">{{item.title}}</p>
+            <div id="side-men" class="toolbox box box-grey box-padding side-menu">
+                <h3 class="text-center ">Componentes</h3>
+                <ul class="options nav nav-pills nav-stacked ">
+                    <li ng-repeat="item in models.templates " dnd-draggable="item " dnd-type="item.type " dnd-effect-allowed="copy " dnd-copied="item.id=item.id + 1 ">
+                        <div class="option {{item.type}} ">
+                            <p style="display: table-cell;vertical-align: middle; ">{{item.title}}</p>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
+
+    <script
