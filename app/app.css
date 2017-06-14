@@ -220,7 +220,7 @@ textarea:focus {
     margin-left: 25%;
     background-color: #F08700;
     color: #fff;
-    border-radius: 40px;
+    border-radius: 30px;
 }
 
 .exam .fluxx-input {
@@ -230,13 +230,13 @@ textarea:focus {
 .prescription {
     width: 50%;
     margin-left: 25%;
-    background-color: #006BA6;
+    background-color: #8be9fd;
     color: #fff;
     border-radius: 25px;
 }
 
 .prescription .fluxx-input {
-    background-color: #006BA6;
+    background-color: #8be9fd;
 }
 
 .condition {
@@ -335,7 +335,7 @@ textarea:focus {
 
 .prescricao {
     padding-top: 10px;
-    background-color: #006BA6;
+    background-color: #8be9fd;
 }
 
 .perguntaCondicional {
@@ -350,7 +350,7 @@ textarea:focus {
 .side-menu {
     top: 60px;
     height: 100%;
-    background-color: #2D4739;
+    background-color: #3C4556;
     color: #fff;
     right: 0px;
     position: fixed;
@@ -387,16 +387,7 @@ textarea:focus {
 
 .navbar-main {
     height: 60px;
-    background: red;
-    /* For browsers that do not support gradients */
-    /* For Safari 5.1 to 6.0 */
-    background: -webkit-linear-gradient(right, #2D4739, #09814A);
-    background: -moz-linear-gradient(right, #2D4739, #09814A);
-    background: -o-linear-gradient(right, #2D4739, #09814A);
-    background: linear-gradient(to left, #2D4739, #09814A);
-    /* For Opera 11.1 to 12.0 */
-    /* For Firefox 3.6 to 15 */
-    /* Standard syntax */
+    background-color: #3C4556;
     /*background-color: #2D4739 !important;*/
     /*border: none;*/
     border-top: none;
