@@ -17,7 +17,7 @@ e depois
 npm start
 ```
 
-A aplicação vai poder ser acessada em localhost:8000
+A aplicação vai poder ser acessada em localhost:8000.
 
 
 ### Heroku
