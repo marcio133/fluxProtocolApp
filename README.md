@@ -14,7 +14,7 @@ npm install
 e depois
 
 ```
-PORT=8000 npm install
+PORT=8000 npm start
 ```
 
 O PORT=8000 é necessário para configurar a variável de ambiente de porta, utilizada para deploy no heroku.
